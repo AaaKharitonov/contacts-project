@@ -1,0 +1,16 @@
+<div cdkDropList
+     id ="{{addId(row.id)}}"
+     [cdkDropListData]="row.tags"
+     [cdkDropListConnectedTo]="['cdkDropList']"
+     cdkDropListOrientation="horizontal"
+     class="tags-list-drop-box"
+     (cdkDropListDropped)="this.tagsListService.drop($event)"
+>
+  <div class="tags-list-item" *ngFor="let tag of row.tags" cdkDrag>
+    <span>{{tag.title}}
+      <button (click)="deleteTag(row.id, tag.id)">X</button>
+    </span>
+  </div>
+</div>
+
+

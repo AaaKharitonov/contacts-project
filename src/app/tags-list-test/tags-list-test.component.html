@@ -1,0 +1,46 @@
+<div cdkDropList
+     id ="{{addId(0)}}"
+     [cdkDropListData]="dropData1"
+     [cdkDropListConnectedTo]="[subjectList]"
+     cdkDropListOrientation="horizontal"
+     class="example-list"
+     (cdkDropListDropped)="drop($event)"
+>
+  <div class="example-box" *ngFor="let item of dropData1" cdkDrag>{{item.title}}</div>
+</div>
+
+<div cdkDropList
+     id ="{{addId(1)}}"
+     [cdkDropListData]="dropData2"
+     [cdkDropListConnectedTo]="[subjectList]"
+     cdkDropListOrientation="horizontal"
+     class="example-list"
+     (cdkDropListDropped)="drop($event)"
+>
+  <div class="example-box" *ngFor="let item of dropData2" cdkDrag>{{item.title}}</div>
+</div>
+
+<div cdkDropList
+     id ="{{addId(2)}}"
+     [cdkDropListData]="dropData3"
+     [cdkDropListConnectedTo]="[subjectList]"
+     cdkDropListOrientation="horizontal"
+     class="example-list"
+     (cdkDropListDropped)="drop($event)"
+>
+  <div class="example-box" *ngFor="let item of dropData3" cdkDrag>{{item.title}}</div>
+</div>
+
+<div class="example-container">
+  <h2>Drag</h2>
+  <div class="subj-container"
+       id ="{{addId(100)}}"
+       cdkDropList
+       #subjectList="cdkDropList"
+       [cdkDropListData]="dragData"
+       [cdkDropListConnectedTo]="LIST_IDS"
+       (cdkDropListDropped)="drop($event)"
+  >
+    <div class="example-box" *ngFor="let item of dragData" cdkDrag>{{item.title}}</div>
+  </div>
+</div>
